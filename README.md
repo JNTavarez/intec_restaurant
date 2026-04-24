@@ -29,6 +29,7 @@ A comprehensive mobile application built with Flutter, designed to provide a com
   - `shared_preferences`: For local persistent storage (e.g., theme preferences).
   - `image_picker`: For selecting images from the device gallery.
   - `form_field_validator`: For streamlined form validation logic.
+  - `flutter_dotenv`: For securely loading environment variables (like Firebase credentials) at runtime.
 
 ## 📂 Project Architecture
 
@@ -80,14 +81,14 @@ To run this project locally, follow these steps:
    flutter pub get
    ```
 
-3. **Configure Firebase:**
-   - The project uses `firebase_options.dart`. Make sure to configure your own Firebase project.
-   - Run the FlutterFire CLI to generate your configurations:
-
+3. **Configure Environment Variables & Firebase:**
+   - The project protects sensitive Firebase credentials using a `.env` file.
+   - Duplicate the provided template and rename it to `.env`:
      ```bash
-     flutterfire configure
+     cp .env.example .env
      ```
-
+   - Open the `.env` file and fill in the values with your Firebase project credentials.
+   - *(Optional)* If you run the FlutterFire CLI (`flutterfire configure`) to re-generate settings, remember to update `lib/firebase_options.dart` again so it reads from `dotenv.env['KEY']` rather than using hardcoded values.
    - Ensure you enable **Authentication**, **Firestore**, and **Storage** in your Firebase console.
 
 4. **Run the App:**
