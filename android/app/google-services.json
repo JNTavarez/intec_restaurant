@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "108785760008",
+    "project_id": "intec-restaurante-f47f6",
+    "storage_bucket": "intec-restaurante-f47f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108785760008:android:90a183b228cb006f599ebd",
+        "android_client_info": {
+          "package_name": "com.example.intec_restaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiRgCua38CkM5fDoHqLc313ZmB0fC9k1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

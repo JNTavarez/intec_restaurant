@@ -1,0 +1,176 @@
+// import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
+// import 'package:intec_restaurant/constants.dart';
+// import 'package:intec_restaurant/src/views/screens/auth_screens/register_screen.dart';
+// import 'package:intec_restaurant/src/views/screens/home_screen.dart';
+//
+//
+//
+// class LoginScreen extends StatefulWidget {
+//    LoginScreen({super.key});
+//
+//   @override
+//   State<LoginScreen> createState() => _LoginScreenState();
+// }
+//
+// class _LoginScreenState extends State<LoginScreen> {
+//   //objeto para validar el estado del formulario
+//   GlobalKey<FormState> _key = GlobalKey<FormState>();
+//
+//   final _fullNameController = TextEditingController();
+//   final _emailController = TextEditingController();
+//   final _passwordController = TextEditingController();
+//   final _confirmPasswordController = TextEditingController();
+//
+//   final _authController = AuthController();
+//
+//   bool _isLoading = false;
+//
+//   //variable para controlar si se oculta la contrasena
+//   bool _obscureText = true;
+//
+//   //metodo para realizar el login del usuario
+//   void login() async{
+//     if(_key.currentState!.validate()){
+//       //ejecutamos el proceso de login
+//       setState(() {
+//         _isLoading = true;
+//       });
+//       String res = await _authController.loginUser(_emailController.text.trim(), _passwordController.text.trim());
+//
+//       if (res == 'success'){
+//         Future.delayed(Duration.zero, () {
+//           Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+//           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Login Successful')));
+//         },);
+//       }else{
+//         setState(() {
+//           _isLoading = false;
+//         });
+//         Future.delayed(Duration.zero, () {
+//           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(res)));
+//         },);
+//       }
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Theme.of(context).colorScheme.surface,
+//       body: Center(
+//         child: SingleChildScrollView(
+//           child: Padding(
+//               padding: EdgeInsets.symmetric(horizontal: 20),
+//             child: Form(
+//               key: _key,
+//                 child: Column(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   children: [
+//                     Text('Welcome Back', style: GoogleFonts.roboto(
+//                       textStyle: TextStyle(
+//                           fontSize: 40,
+//                           fontWeight: FontWeight.bold
+//                       ),
+//                     ),),
+//                     Text('login with your credential'),
+//                     SizedBox(
+//                       height: 40,
+//                     ),
+//                     TextFormField(
+//                       controller: _emailController,
+//                       validator: emailValidator.call,
+//                       keyboardType: TextInputType.emailAddress,
+//                       decoration: InputDecoration(
+//                           border: OutlineInputBorder(
+//                               borderRadius: BorderRadius.circular(12)
+//                           ),
+//                           labelText: "Email",
+//                           labelStyle: GoogleFonts.roboto(),
+//                           hintText: "user@domain.com",
+//                           hintStyle: GoogleFonts.roboto(),
+//                           prefixIcon: Icon(Icons.email_outlined, size: 30,)
+//                       ),
+//                     ),
+//                     SizedBox(height: 20,),
+//                     TextFormField(
+//                       controller: _passwordController,
+//                       validator: passwordValidator.call,
+//                       keyboardType: TextInputType.text,
+//                       obscureText: _obscureText,
+//                       decoration: InputDecoration(
+//                           border: OutlineInputBorder(
+//                               borderRadius: BorderRadius.circular(12)
+//                           ),
+//                           labelText: "Password",
+//                           labelStyle: GoogleFonts.roboto(),
+//                           hintText: "your password",
+//                           hintStyle: GoogleFonts.roboto(),
+//                           prefixIcon: Icon(Icons.lock_outline, size: 30,),
+//                           suffixIcon: InkWell(
+//                             onTap: (){
+//                               setState(() {
+//                                 _obscureText = !_obscureText;
+//                               });
+//                             },
+//                             child: Icon(
+//                               _obscureText ?
+//                               Icons.remove_red_eye_outlined : Icons.visibility_off_outlined,
+//                               size: 30,),
+//                           )
+//                       ),
+//                     ),
+//                     SizedBox(height: 10,),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.end,
+//                       children: [
+//                         Text("Don't have an account?"),
+//                         SizedBox(width: 5,),
+//                         InkWell(
+//                           onTap: (){
+//                             //ir a la pagina de registro
+//                             Navigator.push(context, MaterialPageRoute(builder: (context) {
+//                               return RegisterScreen();
+//                             },));
+//                           },
+//                           child: Text("Register here", style: GoogleFonts.roboto(
+//                             fontWeight: FontWeight.bold,
+//                             color: Colors.black,
+//                           ),),
+//                         ),
+//                       ],
+//                     ),
+//                     SizedBox(
+//                       height: 40,
+//                     ),
+//                     InkWell(
+//                       onTap: () {
+//                         //llamar al metodo para ejecutar el login
+//                         login();
+//                       },
+//                       child: Container(
+//                         width: double.infinity,
+//                         height: 65,
+//                         decoration: BoxDecoration(
+//                           borderRadius: BorderRadius.circular(12),
+//                           border: Border.all(color: Colors.black),
+//                           color: Colors.transparent,
+//                         ),
+//                         child: Center(
+//                           child: Text("Login", style: GoogleFonts.roboto(
+//                               fontWeight: FontWeight.bold,
+//                               fontSize: 25,
+//                               color: Colors.black
+//                           ),),
+//                         ),
+//                       ),
+//                     ),
+//                   ],
+//                 ),
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
