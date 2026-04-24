@@ -12,8 +12,11 @@ import 'src/themes/light_mode.dart';
 import 'src/views/screens/auth_screens/login_screen.dart';
 import 'src/views/screens/home_screen.dart';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 

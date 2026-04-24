@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -40,48 +41,48 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAiRgCua38CkM5fDoHqLc313ZmB0fC9k1E',
-    appId: '1:108785760008:android:90a183b228cb006f599ebd',
-    messagingSenderId: '108785760008',
-    projectId: 'intec-restaurante-f47f6',
-    storageBucket: 'intec-restaurante-f47f6.firebasestorage.app',
+  static FirebaseOptions get android => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_ANDROID_API_KEY'] ?? '',
+    appId: dotenv.env['FIREBASE_ANDROID_APP_ID'] ?? '',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAUz7nR69mwVDzN06qgqCB8PpYfln42sdY',
-    appId: '1:108785760008:ios:e89e768f7598337c599ebd',
-    messagingSenderId: '108785760008',
-    projectId: 'intec-restaurante-f47f6',
-    storageBucket: 'intec-restaurante-f47f6.firebasestorage.app',
-    iosBundleId: 'com.example.intecRestaurant',
+  static FirebaseOptions get ios => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_IOS_API_KEY'] ?? '',
+    appId: dotenv.env['FIREBASE_IOS_APP_ID'] ?? '',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID'] ?? '',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAUz7nR69mwVDzN06qgqCB8PpYfln42sdY',
-    appId: '1:108785760008:ios:e89e768f7598337c599ebd',
-    messagingSenderId: '108785760008',
-    projectId: 'intec-restaurante-f47f6',
-    storageBucket: 'intec-restaurante-f47f6.firebasestorage.app',
-    iosBundleId: 'com.example.intecRestaurant',
+  static FirebaseOptions get macos => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_IOS_API_KEY'] ?? '',
+    appId: dotenv.env['FIREBASE_IOS_APP_ID'] ?? '',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
+    iosBundleId: dotenv.env['FIREBASE_IOS_BUNDLE_ID'] ?? '',
   );
 
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCCr3kqcbrVcY11mH1V6PRJ9DR3aR-R4Ps',
-    appId: '1:108785760008:web:ffb509745d1b8528599ebd',
-    messagingSenderId: '108785760008',
-    projectId: 'intec-restaurante-f47f6',
-    authDomain: 'intec-restaurante-f47f6.firebaseapp.com',
-    storageBucket: 'intec-restaurante-f47f6.firebasestorage.app',
+  static FirebaseOptions get windows => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_WEB_API_KEY'] ?? '',
+    appId: dotenv.env['FIREBASE_WEB_APP_ID'] ?? '',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+    authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
   );
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCCr3kqcbrVcY11mH1V6PRJ9DR3aR-R4Ps',
-    appId: '1:108785760008:web:7448e3fd013ff19e599ebd',
-    messagingSenderId: '108785760008',
-    projectId: 'intec-restaurante-f47f6',
-    authDomain: 'intec-restaurante-f47f6.firebaseapp.com',
-    storageBucket: 'intec-restaurante-f47f6.firebasestorage.app',
+  static FirebaseOptions get web => FirebaseOptions(
+    apiKey: dotenv.env['FIREBASE_WEB_API_KEY'] ?? '',
+    appId: dotenv.env['FIREBASE_WEB_APP_ID'] ?? '',
+    messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID'] ?? '',
+    projectId: dotenv.env['FIREBASE_PROJECT_ID'] ?? '',
+    authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN'] ?? '',
+    storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET'] ?? '',
   );
 
 }
